@@ -13,13 +13,26 @@ var connection = mysql.createConnection({
 
 const router = express.Router();
 
+//Get data points corresponding to time
+router.get('/getTurbineData/:year/:month/:day/:hour', (req, res) => {
+	let date = req.params.year + "-" + req.params.month + "-" + req.params.day;
+	let hour = req.params.hour+':00:00';
+	if(req.params.hour < 10){
+		hour = '0'+hour;
+	}
+	var query = 'select * from WindData where date=\''+date+'\''+'and ' + 'endTime='+'\''+hour+'\'';
+	console.log(query);
+	connection.query(query, (err, rows, fields) => {
+		console.log(rows[0]);
+		res.send(rows);
+	});
+
+});
+
+
 // Arrow functions
 router.get('/', (req, res) => {
-	connection.connect();
-	connection.query('CREATE TABLE test (foo integer, bar integer);', (err, rows, fields) => {
-			console.log(err);
 
-		});
 
 
 	// res.send({message: '	'});
