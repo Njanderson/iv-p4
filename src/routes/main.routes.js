@@ -23,21 +23,21 @@ function formatDate(year, month, day){
 router.get('/getTurbineIds', (req ,res) => {
 	var query = "select id from Turbines";
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
 router.get('/getTurbineLocation/:turbineId', (req, res) => {
 	var query = "select * from Turbines where id="+req.params.turbineId;
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
 router.get('/getTurbineLocations', (req, res) => {
 	var query = "select * from Turbines";
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
@@ -47,7 +47,7 @@ router.get('/getTurbineDataFromHourById/:turbineId/:year/:month/:day/:hour', (re
 	var hour = formatHour(req.params.hour);
 	var query = 'select * from WindData where date=\''+date+'\''+'and ' + 'endTime='+'\''+hour+'\' and id='+req.params.turbineId;
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
@@ -57,7 +57,7 @@ router.get('/getTurbineDatasFromHour/:year/:month/:day/:hour', (req, res) => {
 	var hour = formatHour(req.params.hour);
 	var query = 'select * from WindData where date=\''+date+'\''+'and ' + 'endTime='+'\''+hour+'\'';
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
@@ -68,7 +68,7 @@ router.get('/getTurbineDataFromDayById/:turbineId/:year/:month/:day', (req, res)
 	var hour = formatHour(req.params.hour);
 	var query = 'select * from WindData where date=\''+date+'\''+ 'and id='+req.params.turbineId;
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
@@ -78,7 +78,7 @@ router.get('/getTurbineDatasFromDay/:turbineId/:year/:month/:day', (req, res) =>
 	var hour = formatHour(req.params.hour);
 	var query = 'select * from WindData where date=\''+date+'\'';
 	db.query(query, (rows) => {
-		res.send(rows);
+		res.jsonp(rows);
 	});
 });
 
