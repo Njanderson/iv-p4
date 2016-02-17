@@ -1,0 +1,11 @@
+var user = ''
+var pw = ''
+var cfg = {
+			  host     : '',
+			  port 	   : ,
+			  database : ',
+			  user     : user,
+			  password : pw
+			}
+
+export {cfg}
