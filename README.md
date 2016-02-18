@@ -16,8 +16,8 @@ Visualizing Wind Power Data
 
 
 ##Workflow
-Get both packages, iv-p4 and iv-p4-frontend
-Get npm, run npm install in both directories generated
-Get the credentials to create a valid db.cfg file to connect with AWS with valid credentials
-Run npm start to start running the backend; restart if you make changes
-After making front-end changes, run webpack in the iv-p4-frontend directory to have webpack regenerate
+1. Get both packages, iv-p4 and iv-p4-frontend
+2. Get npm, run npm install in both directories generated
+3. Get the credentials to create a valid db.cfg file to connect with AWS with valid credentials
+4. Run npm start to start running the backend; restart if you make changes
+5. After making front-end changes, run webpack in the iv-p4-frontend directory to have webpack regenerate
