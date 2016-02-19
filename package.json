@@ -1,7 +1,7 @@
 {
-  "name": "p3backend",
+  "name": "p4backend",
   "version": "1.0.0",
-  "description": "backend for provided facebookdata",
+  "description": "backend for wind turbine info vis",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
