@@ -82,5 +82,27 @@ router.get('/getTurbineDatasFromDay/:turbineId/:year/:month/:day', (req, res) =>
 	});
 });
 
+//Get all maintenance logs for turbine
+router.get('/getTurbineMaintenanceLogs/:turbineId', (req, res) => {
+	let query = 'select * from MaintenanceLog where turbineId='+req.params.turbineId;
+	db.query(query, rows => {
+		res.jsonp(rows);
+	})
+});
+
+//Add maintenance log to turbine
+router.get('/addTurbineLog/:turbineId/:message/:status/:date', (req, res) => {
+	db.addMaintenanceLog(req.params.message, req.params.status, req.params.turbineId, req.params.date, (msg) => {
+		res.jsonp(msg);
+	});
+});
+//Remove maintenance log
+router.get('/removeTurbineLog/:logId', (req,res) => {
+	db.removeMaintenanceLog(req.params.logId, msg => {
+		res.jsonp(msg);
+	})
+})
+
+
 // Exporting an object as the default import for this module
 export default router;
