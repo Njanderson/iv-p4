@@ -13,6 +13,9 @@ Visualizing Wind Power Data
 |getTurbineDatasFromHour|year, month, day, hour|
 |getTurbineDataFromDayById|turbineId, month, day, year|
 |getTurbineDatasFromDay|month,day,year|
+|getTurbineMaintenanceLogs|turbineId|List({date, logId, message, turbineStatus, turbineId})|
+|addTurbineLog|turbineId, message, status, date|
+|removeTurbineLog|logId|
 
 
 ##Workflow for backend
