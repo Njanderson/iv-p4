@@ -1,6 +1,10 @@
 # iv-p4
 iv16 final project
 
+#Running
+npm install
+npm run server
+
 Visualizing Wind Power Data
 
 ## Available routes
