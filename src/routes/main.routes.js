@@ -3,8 +3,11 @@
 import express from 'express';
 import DBConnection from '../dbconnection.js';
 import {cfg} from '../db.cfg';
+import {apiCfg} from '../46elk.cfg';
+import SMSHandler from '../smshandler.js';
 
 const db = new DBConnection(cfg); 
+const smsHandler = new SMSHandler(apiCfg);
 
 const router = express.Router();
 
@@ -101,6 +104,18 @@ router.get('/removeTurbineLog/:logId', (req,res) => {
 	db.removeMaintenanceLog(req.params.logId, msg => {
 		res.jsonp(msg);
 	})
+})
+
+//Send text
+
+router.get('/sendText/:from/:to/:message', (req, res) => {
+	smsHandler.sendText(req.params.from, req.params.to, req.params.message, (err, response, body) => {
+		if(err){
+			res.jsonp(err);
+		}else{
+			res.jsonp(response);
+		}
+	});
 })
 
 
