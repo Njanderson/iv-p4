@@ -16,6 +16,7 @@ Visualizing Wind Power Data
 |getTurbineMaintenanceLogs|turbineId|List({date, logId, message, turbineStatus, turbineId})|
 |addTurbineLog|turbineId, message, status, date|
 |removeTurbineLog|logId|
+|getAverageValuesById|id|List({all datas averaged over the day})|
 
 
 ##Workflow for backend
