@@ -119,5 +119,13 @@ router.get('/sendText/:from/:to/:message', (req, res) => {
 })
 
 
+//Get average values for day
+router.get('/getAverageValuesFromDayById/:id' (res, req) => {
+	let query = "select date, avg(windSpeed), avg(ac_primary_load), avg(hugh_piggott), avg(ac_primary_served), avg(excess_electricity), avg(unmet_load), avg(capacity_shortage), avg(inverter_input_power), avg(inverter_output_power), avg(recitifier_input_power), avg(rectifier_output_power), avg(battery_input_power), avg(battery_state_of_charge), avg(battery_energy_cost) from WindData where id=+"id+"group by date";
+	db.query(query, rows => {
+		res.jsonp(rows);
+	})
+})
+
 // Exporting an object as the default import for this module
 export default router;
