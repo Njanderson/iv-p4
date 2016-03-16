@@ -93,6 +93,14 @@ router.get('/getTurbineMaintenanceLogs/:turbineId', (req, res) => {
 	})
 });
 
+//Get all maintenancce logs
+router.get('/getMaintenanceLogs', (req, res) => {
+	let query = "select * from MaintenanceLog";
+	db.query(query, rows => {
+		res.jsonp(rows);
+	})
+})
+
 //Add maintenance log to turbine
 router.get('/addTurbineLog/:turbineId/:message/:status/:date', (req, res) => {
 	db.addMaintenanceLog(req.params.message, req.params.status, req.params.turbineId, req.params.date, (msg) => {
@@ -122,6 +130,13 @@ router.get('/sendText/:from/:to/:message', (req, res) => {
 //Get average values for day
 router.get('/getAverageValuesById/:id', (req, res) => {
 	let query = "select date, avg(windSpeed), avg(ac_primary_load), avg(hugh_piggott), avg(ac_primary_served), avg(excess_electricity), avg(unmet_load), avg(capacity_shortage), avg(inverter_input_power), avg(inverter_output_power), avg(recitifier_input_power), avg(rectifier_output_power), avg(battery_input_power), avg(battery_state_of_charge), avg(battery_energy_cost) from WindData where id="+req.params.id+" group by date";
+	db.query(query, rows => {
+		res.jsonp(rows);
+	})
+})
+
+router.get('/getPopulationDensitiesByRegion', (req ,res) => {
+	let query = 'select * from PopulationData';
 	db.query(query, rows => {
 		res.jsonp(rows);
 	})

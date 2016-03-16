@@ -6,7 +6,7 @@ export default class DBConnection{
 	
 	constructor(config){
 		this.connection = mysql.createConnection(config);
-		this.connection.connect();
+		// this.connection.connect();
 	}
 
 	disconnect(){
