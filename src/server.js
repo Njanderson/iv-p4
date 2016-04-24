@@ -11,7 +11,7 @@ const app = express();
 app.use('/', routes);
 
 // arrow functions
-const server = app.listen(3000, () => {
+const server = app.listen(3001, () => {
 	// destructuring
   const {address, port} = server.address();
 
