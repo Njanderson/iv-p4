@@ -6,7 +6,7 @@ export default class DBConnection{
 	
 	constructor(config){
 		this.connection = mysql.createConnection(config);
-		// this.connection.connect();
+		this.connection.connect();
 	}
 
 	disconnect(){
@@ -32,14 +32,12 @@ export default class DBConnection{
 	}
 
 	query(query, callback){
-		this.connection.connect()
 		this.connection.query(query, (err, rows, fields) => {
 			if(err){
 				console.log(err);
 			}else{
 				callback(rows);
 			}
-			this.connection.end()
 		});
 	}
 
