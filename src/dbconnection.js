@@ -32,6 +32,7 @@ export default class DBConnection{
 	}
 
 	query(query, callback){
+		this.connection.connect()
 		this.connection.query(query, (err, rows, fields) => {
 			if(err){
 				console.log(err);
@@ -39,6 +40,7 @@ export default class DBConnection{
 				callback(rows);
 			}
 		});
+		this.connection.end()
 	}
 
 }
