@@ -39,8 +39,8 @@ export default class DBConnection{
 			}else{
 				callback(rows);
 			}
+			this.connection.end()
 		});
-		this.connection.end()
 	}
 
 }
